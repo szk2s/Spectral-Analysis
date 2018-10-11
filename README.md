@@ -1,2 +1,2 @@
 # Usage
-### open 'main.m', then run the sections one by one
+### type `edit main.m`, then run the sections one by one
