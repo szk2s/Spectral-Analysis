@@ -1,10 +1,12 @@
-config.soundname = 'bird';
-config.inputFilename = './audio/bird.flac';
+config.soundname = 'church';
+config.inputFilename = './audio/church.wav';
 config.outputFolder = '../Neuron/assets/user/csv';
-config.lowestFreq = 2000; %lowest frequency edge of analysis
+config.lowestFreq = 60; %lowest frequency edge of analysis
 config.bpm = 120;
 config.ppqr = 96;
 config.timeResolution = 60/config.bpm/config.ppqr;
+config.freqResolution = 20;
+config.resolutionMode = 'time'; % You can apply only one resolution 'freq' or 'time'
 config.freqScale = 'log';   %'linear' or 'log'
 config.ampScale = 'log';
 config.numRidges = 15;

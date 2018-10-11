@@ -1,6 +1,9 @@
 %% Configuration
 addpath('./functions');
 run('initialize.m');
+% edit config manually in the workspace
+
+%% Audio import
 [audio, Fs] = audioread(config.inputFilename);
 audio = prepareAnalysis(audio);  %sum to mono and normalize audio 
 sound(audio, Fs);
@@ -10,23 +13,26 @@ sound(audio, Fs);
 %% Frequency Analysis
 
 spectrumTest(audio, Fs, config.lowestFreq, ...
-    config.timeResolution, config.freqScale, config.ampScale);  
+    config.timeResolution, config.freqResolution,...
+    config.resolutionMode, ...
+    config.freqScale, config.ampScale);  
 
-% change parameter, then try again 
+% if the result was not enough, change parameter and try again 
 
 %% Prepare for ridge detection
 
-[p,f,t] = spectrumAnalyse(audio, Fs, config.lowestFreq, config.timeResolution);  
+[p,f,t] = spectrumAnalyse(audio, Fs, config.lowestFreq, ...
+    config.timeResolution, config.freqResolution,...  
+    config.resolutionMode);    
+p = normalizeMatrix(p);     %  normalize
  
+%% Optional treqtment
 % % decimate frequency bins    
 % % pのfrequencyのbinの間引き    
  
 % [p,f] = decimBins(p,f,16);  
 
-%  normalize  
-p = normalizeMatrix(p);  
- 
-%   Visualize  
+%%   Visualize  
  
 spectrumVisualize(t, f, p, config.freqScale, config.ampScale);  
 
