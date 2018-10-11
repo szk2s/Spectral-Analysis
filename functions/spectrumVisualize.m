@@ -1,6 +1,4 @@
-function spectrumVisualize(t,f,p)
-    mesh(t,f,p)
-    ax = gca;
-%     ax.YScale = 'log';
-    ax.ZScale = 'log';
+function spectrumVisualize(t,f,p,freqScale,ampScale)
+    mesh(t,f,p);
+    setAx(freqScale,ampScale);
 end

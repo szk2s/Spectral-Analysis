@@ -1,0 +1,10 @@
+config.soundname = 'bird';
+config.inputFilename = './audio/bird.flac';
+config.outputFolder = '../Neuron/assets/user/csv';
+config.lowestFreq = 2000; %lowest frequency edge of analysis
+config.bpm = 120;
+config.ppqr = 96;
+config.timeResolution = 60/config.bpm/config.ppqr;
+config.freqScale = 'log';   %'linear' or 'log'
+config.ampScale = 'log';
+config.numRidges = 15;
