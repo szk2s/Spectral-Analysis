@@ -1,8 +1,7 @@
-function [rvals, fridge] = detectRidge(p,f,numRidges)
+function [rvals, fridge] = detectRidge(p,f,numRidges,penval,numFrequencyBins)
 
-    penval = 0.1;     %Penalty to frequency changes
-
-    [fridge,~,lridge] = tfridge(p,f,penval,'NumRidges',numRidges,'NumFrequencyBins',10);
+    [fridge,~,lridge] = tfridge(p,f,penval,'NumRidges',...
+        numRidges,'NumFrequencyBins',numFrequencyBins);
 
     rvals = p(lridge);
 end
