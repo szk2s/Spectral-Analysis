@@ -10,3 +10,5 @@ config.resolutionMode = 'time'; % You can apply only one resolution 'freq' or 't
 config.freqScale = 'log';   %'linear' or 'log'
 config.ampScale = 'log';
 config.numRidges = 15;
+config.penval = 0.1;     %Penalty to frequency changes. Value between 0 and 1 usually brings good result.
+config.numFrequencyBins = 10;
