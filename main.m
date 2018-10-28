@@ -10,7 +10,7 @@ sound(audio, Fs);
 
 % audio = audio(0.5*Fs:3*Fs); %if you want to crop input file.
 
-%% Frequency Analysis
+%% Frequency Analysis (you can skip this section)
 
 spectrumTest(audio, Fs, config.lowestFreq, ...
     config.timeResolution, config.freqResolution,...
@@ -32,7 +32,7 @@ p = normalizeMatrix(p);     %  normalize
  
 % [p,f] = decimBins(p,f,16);  
 
-%%   Visualize  
+%% Visualize  (you can skip this section)
  
 spectrumVisualize(t, f, p, config.freqScale, config.ampScale);  
 
@@ -47,6 +47,8 @@ ridgeVisualize(t, fridge, rvals, config.freqScale, config.ampScale)
 %% Optional data treatment
 % set values under threshold to zero.
 rvals(rvals < 5e-3) = 0;
+
+% go back to the previous section and you can check the result.
 
 % log rescale
 % logAmps = log10(amplitudes);  
