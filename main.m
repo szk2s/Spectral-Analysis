@@ -1,7 +1,7 @@
 %% Configuration
 addpath('./lib');
 run('initialize.m');
-% edit config manually in the workspace
+% edit 'config' manually in the workspace
 
 %% Audio import
 [audio, Fs] = audioread(config.inputFilename);
@@ -46,7 +46,7 @@ ridgeVisualize(t, fridge, rvals, config.freqScale, config.ampScale)
 
 %% Optional data treatment
 % set values under threshold to zero.
-rvals(rvals < 1e-4) = 0;
+rvals(rvals < 5e-3) = 0;
 
 % log rescale
 % logAmps = log10(amplitudes);  
@@ -61,6 +61,8 @@ rvals(rvals < 1e-4) = 0;
  %% Export audio envelope (optional) 
  env = envelope(audio);
  samplingPoint = round(csvTimecode*Fs);
+ env = vertcat(env,zeros(round(size(env,1)*0.1),1));
  csvEnv = env(samplingPoint)';
+ csvEnv = normalize(csvEnv,'range');
  csvwrite(strcat(config.outputFolder, '/', config.soundname, '_env.csv'), csvEnv);
  save(strcat('./mat/', config.soundname, '_', datestr(now, 'yyyymmdd'), '.mat'));
