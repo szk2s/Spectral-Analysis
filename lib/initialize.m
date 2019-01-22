@@ -1,7 +1,7 @@
-config.soundname = 'church';
+config.soundname = 'bird';
 config.inputFilename = './audio/test/bird.wav';
-config.outputFolder = '../Neuron/assets/user/csv';
-config.lowestFreq = 600; %lowest frequency edge of analysis
+config.outputFolder = '.';
+config.lowestFreq = 0; %lowest frequency edge of analysis
 config.bpm = 120;
 config.ppqr = 48;
 config.timeResolution = 60/config.bpm/config.ppqr;
